@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
@@ -16,14 +18,28 @@ public class Journal
         }
     }
 
+    public string FormatCsvField(string field)
+    {
+        if (string.IsNullOrEmpty(field))
+        {
+            return string.Empty;
+        }
+        return field;
+    }
     public void SaveToFile(string file)
     {
         using (StreamWriter outputFile = new StreamWriter(file))
         {
+            outputFile.WriteLine("Date,Prompt,EntryText");
+
             foreach (Entry entry in _entries)
             {
-                string newEntry = $"{entry._date} -- {entry._promptText} -- {entry._entryText}";
-                outputFile.WriteLine(newEntry);
+                string dateModel = FormatCsvField(entry._date);
+                string promptModel = FormatCsvField(entry._promptText);
+                string entryTextModel = FormatCsvField(entry._entryText);
+
+                string csvLine = $"{dateModel},{promptModel},{entryTextModel}";
+                outputFile.WriteLine(csvLine);
             }
         }
     }
@@ -55,6 +71,6 @@ public class Journal
         {
             Console.WriteLine($"// Ocurrio un error al cargar el archivo: {ex.Message}");
         }
-        
+
     }
 }
