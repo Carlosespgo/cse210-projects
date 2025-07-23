@@ -13,7 +13,6 @@ public class Scripture
             _word.Add(word);
         }
     }
-
     public void HideRandomWord(int numberToHide)
     {
         Random random = new Random();
@@ -30,7 +29,6 @@ public class Scripture
         }
 
     }
-
     public string GetDisplayText()
     {
         string text = "";
