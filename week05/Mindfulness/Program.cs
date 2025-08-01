@@ -13,7 +13,8 @@ class Program
             Console.WriteLine("  1. Start breathing activity");
             Console.WriteLine("  2. Start reflecting activity");
             Console.WriteLine("  3. Start listing activity");
-            Console.WriteLine("  4. Quit");
+            Console.WriteLine("  4. Start Exercise activity");
+            Console.WriteLine("  5. Quit");
             Console.Write("Select a choice from the menu: ");
             choice = Console.ReadLine();
             if (choice == "1")
@@ -33,6 +34,12 @@ class Program
                 ListingActivity activity3 = new ListingActivity();
                 activity3.Run();
             }
-        } while (choice != "4");
+
+            else if (choice == "4")
+            {
+                ExerciseActivity activity4 = new ExerciseActivity();
+                activity4.Run();
+            }
+        } while (choice != "5");
     }
 }
