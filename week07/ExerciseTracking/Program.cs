@@ -12,7 +12,7 @@ class Program
         CyclingActivity activity2 = new CyclingActivity(90, 50);
         _activities.Add(activity2);
 
-        SwimmingActivity activity3 = new SwimmingActivity(30, 6);
+        SwimmingActivity activity3 = new SwimmingActivity(30, 15);
         _activities.Add(activity3);
 
         foreach (Activity activity in _activities)
